@@ -48,7 +48,7 @@ class Facture
      * @param float $tva
      * @return float|int
      */
-    public function getTotalValue($tva = 0.2)
+    public function getTotalValeur($tva = 0.2)
     {
         $totalValue = 0;
 
