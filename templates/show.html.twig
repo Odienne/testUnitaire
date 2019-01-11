@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<ul>
+    {% for line in invoice.lines %}
+        <li>{{ line.description }} : {{ line.calculateTotal() }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
