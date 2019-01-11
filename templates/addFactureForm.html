@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Création d'une facture</title>
+
+    <style>
+        body {
+            background: chocolate;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #ligneFacture {
+            width: 100%;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .row {
+            width: 80%;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        #add {
+            margin: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1 class="text-center">Génération de facture</h1>
+<form method="POST" action="traitement.php">
+    <div id="ligneFacture">
+        <div>
+            <div class="row">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" placeholder="Description"></textarea>
+            </div>
+            <div class="row">
+                <label for="value">Value</label>
+                <input type="number" name="value">
+            </div>
+        </div>
+    </div>
+    <p id="add">Ajouter une ligne</p>
+    <input type="submit" id="value" value="Générer la facture">
+</form>
+
+<script>
+    let add = document.getElementById('add');
+    add.addEventListener('click', addRow);
+
+    let formDiv = document.getElementById('ligneFacture');
+
+    let i = 0;
+
+    function addRow() {
+        i++;
+        let row = document.createElement("div");
+
+        row.innerHTML = '<div class="row">\n' +
+            '                <label for="description'+i+'">Description</label>\n' +
+            '                <textarea name="description'+i+'" id="description'+i+'" placeholder="Description"></textarea>\n' +
+            '            </div>\n' +
+            '            <div class="row">\n' +
+            '                <label for="value'+i+'">Value</label>\n' +
+            '                <input type="number" name="value'+i+'">\n' +
+            '            </div>';
+
+        formDiv.appendChild(row);
+    }
+</script>
+</body>
+</html>
