@@ -4,10 +4,10 @@ php:
 
 branches:
   only:
-  - master
+    - master
 
 install:
-- composer install --prefer-dist -n
+  - composer install --prefer-dist -n
 
 script:
-- vendor/bin/phpunit tests/
+  - vendor/bin/phpunit tests/
