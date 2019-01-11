@@ -1,21 +1,13 @@
 language: php
 php:
-- 7.0
-- 7.1
 - 7.2
-- 7.3
-
-matrix:
-  include:
-  - php: 7.2
-    env: 'COMPOSER_FLAGS="--prefer-lowest --prefer-stable"'
 
 branches:
   only:
   - master
 
 install:
-- composer install --prefer-source
+- composer install --prefer-dist -n
 
 script:
 - vendor/bin/phpunit
