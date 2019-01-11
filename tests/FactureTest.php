@@ -18,7 +18,7 @@ class FactureTest extends TestCase
         $lignesFactures = [new LigneFacturation("achat courses", 10), new LigneFacturation("achat brownie", 1)];
         $facture = new Facture($lignesFactures);
 
-        $this->assertEquals("8.8", $facture->getTotalValue());
+        $this->assertEquals("8.8", $facture->getTotalValeur());
     }
 
     public function testGetLignesFacturations()
